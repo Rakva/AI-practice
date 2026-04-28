@@ -1,0 +1,102 @@
+
+2. for distance we can use x and y coordinates
+12. astar -> myagent
+13. 3 files: 10 - astar, 5 - my_agent
+14. 26.11.2025 is deadline for this
+
+--- Detector --- DONE --- 5 points ---
+--- Astar --- DONE - 7/10 --- 7 points ---
+1. we need to finish the functions in the myagent.py
+3. if the cube is on the wall it gets stack so be accountable for it. we should give a symbol
+   or value to the spaces were we should not push the box
+4. we are HELPING the search algorithm with heuristic algorithms, NOT writing it from scratch
+5. Dead ends must be checked! bot one side and the both side
+6. there must be difference between dead ends for box and available "teleportation" for the sukuban
+7. it is lacking flexibility so not only the dead-end declarations!
+8. so not start with dead-ends start with the open space for movements
+9. start from the goal and go back. Goal(N) = Box(N-1) + sokoban (N - 2) declaring places ALIVE
+10. BFS or DFS, queue or stack, recursive functions...
+11. there is a dead_square_detector.txt
+
+-----------------------------
+
+#!/usr/bin/env python3
+from game.action import *
+from game.board import *
+from game.artificial_agent import ArtificialAgent
+from dead_square_detector import detect
+from typing import List, Union
+import sys
+from time import perf_counter
+from os.path import dirname
+
+sys.path.append(dirname(dirname(dirname(__file__))))
+from astar import AStar
+from search_templates import HeuristicProblem
+
+
+class MyAgent(ArtificialAgent):
+    def __init__(self, optimal, verbose) -> None:
+        super().__init__(optimal, verbose)  # recommended
+
+    def new_game(self) -> None:
+        super().new_game()  # recommended
+
+    @staticmethod
+    def think(
+        board: Board, optimal: bool, verbose: bool
+    ) -> List[Union[EDirection, Action]]:
+
+
+        prob = SokobanProblem(board)
+        solution = AStar(prob)
+        if not solution:
+            return None
+
+        return [a.dir for a in solution.actions]
+
+
+class SokobanProblem(HeuristicProblem):
+
+    def __init__(self, board) -> None:
+        self.init = board
+        self.detected = detect(board)
+
+    def initial_state(self) -> Union[Board, StateMinimal]:
+        return self.init
+
+    def actions(self, state: Union[Board, StateMinimal]) -> List[Action]:
+        actions: List[Action] = []
+        i = 1
+        j = 1
+        for m in Move.get_actions():
+            print("#",i," move: ", m)
+            i=i+1
+            if m.is_possible(self.board) and :
+                actions.append(m)
+        for p in Push.get_actions():
+            print("#",j," push: ", p)
+            j=j+1
+            if p.is_possible(self.board):
+                actions.append(p)
+
+        return actions
+
+    def result(
+        self, state: Union[Board, StateMinimal], action: Action
+    ) -> Union[Board, StateMinimal]:
+
+        copy_state = state.clone()
+        action.perform(copy_state)
+
+        return copy_state
+
+    def is_goal(self, state: Union[Board, StateMinimal]) -> bool:
+        return state.is_victory()
+
+    def cost(self, state: Union[Board, StateMinimal], action: Action) -> float:
+        return 1
+
+    def estimate(self, state: Union[Board, StateMinimal]) -> float:
+        # on our own
+        raise NotImplementedError

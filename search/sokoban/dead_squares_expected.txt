@@ -1,0 +1,232 @@
+== level Aymeric_du_Peloux_1_Minicosmos: 1 ==
+
+########
+###   ##
+#   # ##
+# #  . #
+#    # #
+## #   #
+##   ###
+########
+
+dead squares:
+########
+###XXX##
+#X__#_##
+#X#___X#
+#X___#X#
+##_#__X#
+##XXX###
+########
+
+== level Aymeric_du_Peloux_1_Minicosmos: 2 ==
+
+########
+###   ##
+#   # ##
+# #  . #
+#    # #
+## #.  #
+##   ###
+########
+
+dead squares:
+########
+###XXX##
+#X__#_##
+#X#___X#
+#X___#X#
+##_#__X#
+##XXX###
+########
+
+== level Aymeric_du_Peloux_1_Minicosmos: 3 ==
+
+########
+###   ##
+#   # ##
+# #  . #
+# .  # #
+## #.  #
+##   ###
+########
+
+dead squares:
+########
+###XXX##
+#X__#_##
+#X#___X#
+#X___#X#
+##_#__X#
+##XXX###
+########
+
+== level Aymeric_du_Peloux_1_Minicosmos: 4 ==
+
+########
+#####  #
+#      #
+#  .#  #
+## ## ##
+#      #
+#  #   #
+#  #####
+########
+
+dead squares:
+########
+#####XX#
+#X____X#
+#X__#_X#
+##_##_##
+#X____X#
+#X_#XXX#
+#XX#####
+########
+
+== level Aymeric_du_Peloux_1_Minicosmos: 5 ==
+
+########
+#####  #
+#      #
+# ..#  #
+## ## ##
+#      #
+#  #   #
+#  #####
+########
+
+dead squares:
+########
+#####XX#
+#X____X#
+#X__#_X#
+##_##_##
+#X____X#
+#X_#XXX#
+#XX#####
+########
+
+== level Aymeric_du_Peloux_1_Minicosmos: 6 ==
+
+########
+#####  #
+#   .  #
+# ..#  #
+## ## ##
+#      #
+#  #   #
+#  #####
+########
+
+dead squares:
+########
+#####XX#
+#X____X#
+#X__#_X#
+##_##_##
+#X____X#
+#X_#XXX#
+#XX#####
+########
+
+== level Aymeric_du_Peloux_1_Minicosmos: 7 ==
+
+########
+##   ###
+## #  ##
+#      #
+#. .#  #
+###   ##
+### # ##
+###   ##
+########
+
+dead squares:
+########
+##XXX###
+##_#_X##
+#X____X#
+#___#_X#
+###___##
+###_#_##
+###XXX##
+########
+
+== level Aymeric_du_Peloux_1_Minicosmos: 8 ==
+
+########
+##   ###
+##.#  ##
+#      #
+#. .#  #
+###   ##
+### # ##
+###   ##
+########
+
+dead squares:
+########
+##XXX###
+##_#_X##
+#X____X#
+#___#_X#
+###___##
+###_#_##
+###XXX##
+########
+
+== level Aymeric_du_Peloux_1_Minicosmos: 9 ==
+
+########
+##   ###
+## # ###
+#      #
+# #  # #
+# #. . #
+#   ####
+########
+
+dead squares:
+########
+##XXX###
+##_#_###
+#X____X#
+#X#__#X#
+#X#___X#
+#XXX####
+########
+
+== level Aymeric_du_Peloux_1_Minicosmos: 10 ==
+
+########
+##   ###
+## # ###
+#  .   #
+# #  # #
+# #..  #
+#   ####
+########
+
+dead squares:
+########
+##XXX###
+##_#_###
+#X____X#
+#X#__#X#
+#X#___X#
+#XXX####
+########
+
+
+                # x, y = state.sokoban
+                # check = True
+                # if str(p)== "Push[DOWN]" and x+2<self.init.height:
+                #     check = detected[x+2][y]
+                # if str(p) == "Push[UP]" and x-2>=0:
+                #     check = detected[x-2][y]
+                # if str(p) == "Push[RIGHT]" and y+2<self.init.width:
+                #     check = detected[x][y+2]
+                # if str(p) == "Push[LEFT]" and y-2>=0:
+                #     check = detected[x][y-2]
+                # if not check:
